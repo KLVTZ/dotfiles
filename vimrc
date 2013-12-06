@@ -1,0 +1,64 @@
+set nocompatible
+
+filetype on
+filetype indent on
+filetype plugin on
+
+call pathogen#infect()
+
+let mapleader = ","
+set ignorecase
+set hlsearch
+set fileencoding=utf-8
+set encoding=utf-8
+set backspace=indent,eol,start
+set tabstop=4
+set softtabstop=4 
+set shiftwidth=4 
+set smartcase
+set gdefault
+set incsearch
+set showmatch
+set noswapfile
+set visualbell
+set cursorline
+set list
+syntax on
+set number
+
+set t_Co=256
+colorscheme luna 
+
+
+set listchars=tab:▸\ ,eol:¬
+set laststatus=2
+set ttimeoutlen=50
+
+"map keys 
+nmap <leader>l :set list!<CR>"
+
+" Invisible character colors
+highlight NonText guifg=#4a4a59
+highlight SpecialKey guifg=#4a4a59
+
+" Only do this part when compiled with support for autocommands
+if has("autocmd")
+	" Enable file type detection
+	filetype on
+
+	" Syntax of these languages languages is fussy over tabs Vs spaces
+	autocmd FileType make setlocal ts=8 sts=8 sw=8 noexpandtab
+	autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
+	" Customisations based on house-style (arbitrary)
+	autocmd FileType html setlocal ts=2 sts=2 sw=2 expandtab
+	autocmd FileType css setlocal ts=2 sts=2 sw=2 expandtab
+	autocmd FileType javascript setlocal ts=4 sts=4 sw=4 noexpandtab
+
+	" Treat .rss files as XML
+	autocmd BufNewFile, BufRead *.rss setfiletype xml
+endif
+let g:airline_powerline_fonts = 1
+if !exists('g:airline_symbols')
+  let g:airline_symbols = {}
+  endif
+  let g:airline_symbols.space = "\ua0"
