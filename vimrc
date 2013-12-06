@@ -13,8 +13,8 @@ set fileencoding=utf-8
 set encoding=utf-8
 set backspace=indent,eol,start
 set tabstop=4
-set softtabstop=4 
-set shiftwidth=4 
+set softtabstop=4
+set shiftwidth=4
 set smartcase
 set gdefault
 set incsearch
@@ -25,16 +25,13 @@ set cursorline
 set list
 syntax on
 set number
-
 set t_Co=256
-colorscheme luna 
-
-
+colorscheme kolor
 set listchars=tab:▸\ ,eol:¬
 set laststatus=2
 set ttimeoutlen=50
 
-"map keys 
+"map keys
 nmap <leader>l :set list!<CR>"
 
 " Invisible character colors
@@ -62,3 +59,18 @@ if !exists('g:airline_symbols')
   let g:airline_symbols = {}
   endif
   let g:airline_symbols.space = "\ua0"
+
+  " strip white space
+  function! <SID>StripTrailingWhitespaces()
+	  " prep: save last search, and cursor position
+	  let _s=@/
+	  let l = line(".")
+	  let c = col(".")
+	  " do business:
+	  %s/\s\+$//e
+	  " clean up: restore previous search history, and cursor position
+	  let @/=_s
+	  call cursor(l,c)
+  endfunction
+nnoremap <silent> <F5> :call <SID>StripTrailingWhitespaces()<CR>
+
