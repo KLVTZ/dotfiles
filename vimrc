@@ -26,7 +26,13 @@ set list
 syntax on
 set number
 set t_Co=256
-colorscheme kolor
+
+let g:kolor_italic=1                    " Enable italic. Default: 1
+let g:kolor_bold=1                      " Enable bold. Default: 1
+let g:kolor_underlined=0                " Enable underline for 'Underlined'. Default: 0
+let g:kolor_alternative_matchparen=0    " Gray 'MatchParen' color. Default: 0
+colorscheme kolor 
+
 set listchars=tab:▸\ ,eol:¬
 set laststatus=2
 set ttimeoutlen=50
@@ -74,3 +80,5 @@ if !exists('g:airline_symbols')
   endfunction
 nnoremap <silent> <F5> :call <SID>StripTrailingWhitespaces()<CR>
 
+set term=xterm-256color
+let g:airline_theme = 'base16'
