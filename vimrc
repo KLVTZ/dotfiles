@@ -22,6 +22,7 @@ set showmatch
 set noswapfile
 set visualbell
 set cursorline
+set hidden
 "set list
 syntax on
 set number
@@ -31,7 +32,7 @@ let g:kolor_italic=1                    " Enable italic. Default: 1
 let g:kolor_bold=1                      " Enable bold. Default: 1
 let g:kolor_underlined=0                " Enable underline for 'Underlined'. Default: 0
 let g:kolor_alternative_matchparen=0    " Gray 'MatchParen' color. Default: 0
-colorscheme luna-term 
+colorscheme kolor 
 
 set listchars=tab:☠\ ,eol:¬
 set laststatus=2
@@ -39,6 +40,12 @@ set ttimeoutlen=50
 
 "map keys
 nmap <leader>l :set list!<CR>"
+
+" Captial W and Q for write and quit
+:command WQ wq
+:command Wq wq
+:command W w
+:command Q q
 
 " Invisible character colors
 highlight NonText guifg=#4a4a59
@@ -82,4 +89,4 @@ nnoremap <silent> <F5> :call <SID>StripTrailingWhitespaces()<CR>
 
 set term=xterm-256color
 "let g:airline_theme = 'base16'
-let g:airline_theme = 'luna'
+"let g:airline_theme = 'luna'
