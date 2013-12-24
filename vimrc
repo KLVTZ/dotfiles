@@ -90,3 +90,7 @@ nnoremap <silent> <F5> :call <SID>StripTrailingWhitespaces()<CR>
 set term=xterm-256color
 "let g:airline_theme = 'base16'
 "let g:airline_theme = 'luna'
+
+" Command for soft wrapping
+command! -nargs=* Wrap set wrap linebreak nolist
+
