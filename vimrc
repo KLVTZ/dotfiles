@@ -94,3 +94,6 @@ set term=xterm-256color
 " Command for soft wrapping
 command! -nargs=* Wrap set wrap linebreak nolist
 
+" Open Vim on startup, left.
+autocmd VimEnter * NERDTree
+let g:NERDTreeWinPos = "left"
