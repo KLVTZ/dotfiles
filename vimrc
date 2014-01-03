@@ -40,6 +40,11 @@ set ttimeoutlen=50
 
 "map keys
 nmap <leader>l :set list!<CR>"
+	" Toggle spell checking on and off with `,s`
+let mapleader = ","
+nmap <silent> <leader>s :set spell!<CR>
+
+
 
 " Captial W and Q for write and quit
 :command WQ wq
