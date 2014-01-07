@@ -101,5 +101,4 @@ command! -nargs=* Wrap set wrap linebreak nolist
 
 " Open Vim on startup, left.
 autocmd VimEnter * NERDTree
-" end of file
 let g:NERDTreeWinPos = "left"
