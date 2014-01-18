@@ -102,3 +102,10 @@ command! -nargs=* Wrap set wrap linebreak nolist
 " Open Vim on startup, left.
 autocmd VimEnter * NERDTree
 let g:NERDTreeWinPos = "left"
+
+" Bubble up Text
+nmap <C-Up> ddkP
+nmap <C-Down> ddp
+" Bubble multiple lines
+vmap <C-Up> xkP`[V`]
+vmap <C-Down> xp`[V`]
