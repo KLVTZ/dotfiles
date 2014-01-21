@@ -27,6 +27,7 @@ set hidden
 syntax on
 set number
 set t_Co=256
+set smartindent
 
 let g:kolor_italic=1                    " Enable italic. Default: 1
 let g:kolor_bold=1                      " Enable bold. Default: 1
@@ -44,7 +45,8 @@ nmap <leader>l :set list!<CR>"
 let mapleader = ","
 nmap <silent> <leader>s :set spell!<CR>
 
-
+let g:ctrlp_map = '<c-p>'
+let g:ctrlp_cmd = 'CtrlP'
 
 " Captial W and Q for write and quit
 :command WQ wq
@@ -55,6 +57,10 @@ nmap <silent> <leader>s :set spell!<CR>
 " Invisible character colors
 highlight NonText guifg=#4a4a59
 highlight SpecialKey guifg=#4a4a59
+
+" Open Vim on startup, left.
+autocmd VimEnter * NERDTree
+let g:NERDTreeWinPos = "left"
 
 " Only do this part when compiled with support for autocommands
 if has("autocmd")
@@ -99,9 +105,6 @@ set term=xterm-256color
 " Command for soft wrapping
 command! -nargs=* Wrap set wrap linebreak nolist
 
-" Open Vim on startup, left.
-autocmd VimEnter * NERDTree
-let g:NERDTreeWinPos = "left"
 
 " Bubble up Text
 nmap <C-Up> ddkP
@@ -109,3 +112,6 @@ nmap <C-Down> ddp
 " Bubble multiple lines
 vmap <C-Up> xkP`[V`]
 vmap <C-Down> xp`[V`]
+
+" ControlP plugin
+set runtimepath^=~/.vim/bundle/ctrlp.vim
