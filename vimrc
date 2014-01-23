@@ -23,6 +23,7 @@ set noswapfile
 set visualbell
 set cursorline
 set hidden
+set linebreak
 "set list
 syntax on
 set number
@@ -33,7 +34,7 @@ let g:kolor_italic=1                    " Enable italic. Default: 1
 let g:kolor_bold=1                      " Enable bold. Default: 1
 let g:kolor_underlined=0                " Enable underline for 'Underlined'. Default: 0
 let g:kolor_alternative_matchparen=0    " Gray 'MatchParen' color. Default: 0
-colorscheme kolor 
+colorscheme kolor
 
 set listchars=tab:☠\ ,eol:¬
 set laststatus=2
@@ -42,6 +43,15 @@ set ttimeoutlen=50
 "map keys
 nmap <leader>l :set list!<CR>"
 	" Toggle spell checking on and off with `,s`
+" Gundo for branching diff within file history
+nnoremap <F6> :GundoToggle<CR>
+
+" Practice muscle memory for using the h j k l keys for direction.
+noremap <left> <nop>
+noremap <right> <nop>
+noremap <up> <nop>
+noremap <down> <nop>
+
 let mapleader = ","
 nmap <silent> <leader>s :set spell!<CR>
 
@@ -51,8 +61,8 @@ let g:ctrlp_cmd = 'CtrlP'
 " Captial W and Q for write and quit
 :command WQ wq
 :command Wq wq
-:command W w
 :command Q q
+:command W w
 
 " Invisible character colors
 highlight NonText guifg=#4a4a59
