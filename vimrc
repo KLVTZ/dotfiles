@@ -24,6 +24,7 @@ set visualbell
 set cursorline
 set hidden
 set linebreak
+set scrolloff=5
 "set list
 syntax on
 set number
@@ -125,3 +126,6 @@ vmap <C-Down> xp`[V`]
 
 " ControlP plugin
 set runtimepath^=~/.vim/bundle/ctrlp.vim
+
+" status line for fugitive
+let g:airline#extensions#branch#enabled=1
