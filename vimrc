@@ -42,6 +42,16 @@ set laststatus=2
 set ttimeoutlen=50
 
 "map keys
+
+	"mapping for correct regular expression under magic mode
+nnoremap / /\v
+vnoremap / /\v
+nnoremap ? ?\v
+vnoremap ? ?\v
+
+	" hide currently highlighted search
+nnoremap <leader><space> :noh<cr>
+
 nmap <leader>l :set list!<CR>"
 	" Toggle spell checking on and off with `,s`
 " Gundo for branching diff within file history
