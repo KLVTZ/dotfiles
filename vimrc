@@ -43,17 +43,17 @@ set ttimeoutlen=50
 
 "map keys
 
-	"mapping for correct regular expression under magic mode
+"mapping for correct regular expression under magic mode
 nnoremap / /\v
 vnoremap / /\v
 nnoremap ? ?\v
 vnoremap ? ?\v
 
-	" hide currently highlighted search
+" hide currently highlighted search
 nnoremap <leader><space> :noh<cr>
 
 nmap <leader>l :set list!<CR>"
-	" Toggle spell checking on and off with `,s`
+" Toggle spell checking on and off with `,s`
 " Gundo for branching diff within file history
 nnoremap <F6> :GundoToggle<CR>
 
@@ -101,23 +101,28 @@ if has("autocmd")
 endif
 let g:airline_powerline_fonts = 1
 if !exists('g:airline_symbols')
-  let g:airline_symbols = {}
-  endif
-  let g:airline_symbols.space = "\ua0"
+	let g:airline_symbols = {}
+endif
+let g:airline_symbols.space = "\ua0"
 
-  " strip white space
-  function! <SID>StripTrailingWhitespaces()
-	  " prep: save last search, and cursor position
-	  let _s=@/
-	  let l = line(".")
-	  let c = col(".")
-	  " do business:
-	  %s/\s\+$//e
-	  " clean up: restore previous search history, and cursor position
-	  let @/=_s
-	  call cursor(l,c)
-  endfunction
-nnoremap <silent> <F5> :call <SID>StripTrailingWhitespaces()<CR>
+function! Preserve(command)
+	" Preparation: save last search, and cursor position.
+	let l:win_view = winsaveview()
+	let l:last_search = getreg('/')
+	"
+	" execute the command without adding to the changelist/jumplist:
+	execute 'keepjumps ' . a:command
+	"
+	" Clean up: restore previous search history, and cursor position
+	call winrestview(l:win_view)
+	call setreg('/', l:last_search)
+endfunction
+
+" Delete trailing whitespace
+nnoremap <unique> <silent> <leader>dw :call Preserve("%s/\\s\\+$//e")<cr>
+"
+" " Reindent entire file
+nnoremap <unique> <silent> <leader>e :call Preserve("normal! gg=G")<cr></cr></leader></silent></unique></cr></leader></silent></unique>
 
 set term=xterm-256color
 "let g:airline_theme = 'base16'
