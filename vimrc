@@ -1,5 +1,5 @@
+" vim: foldmethod=marker
 set nocompatible
-
 filetype on
 filetype indent on
 filetype plugin on
@@ -25,6 +25,7 @@ set cursorline
 set hidden
 set linebreak
 set scrolloff=5
+
 "set list
 syntax on
 set number
@@ -40,6 +41,10 @@ colorscheme kolor
 set listchars=tab:☠\ ,eol:¬
 set laststatus=2
 set ttimeoutlen=50
+
+" abbreviations
+cnoreabbrev wrap set wrap
+cnoreabbrev nowrap set nowrap
 
 "map keys
 
@@ -122,7 +127,7 @@ endfunction
 nnoremap <unique> <silent> <leader>dw :call Preserve("%s/\\s\\+$//e")<cr>
 "
 " " Reindent entire file
-nnoremap <unique> <silent> <leader>e :call Preserve("normal! gg=G")<cr></cr></leader></silent></unique></cr></leader></silent></unique>
+nnoremap <unique> <silent> <leader>e :call Preserve("normal! gg=G")<CR></cr></leader></silent></unique></cr></leader></silent></unique>
 
 set term=xterm-256color
 "let g:airline_theme = 'base16'
@@ -144,3 +149,15 @@ set runtimepath^=~/.vim/bundle/ctrlp.vim
 
 " status line for fugitive
 let g:airline#extensions#branch#enabled=1
+
+" autocompletion
+function! InsertTabWrapper()
+	let col = col(".") - 1
+	if !col || getline(".")[col -1] !~ '\k'
+		return "\<tab>"
+	else
+		return "\<c-n>"
+endfunction
+
+inoremap <tab> <c-r>=InsertTabWrapper()<cr>
+inoremap <s-tab> <c-p>
