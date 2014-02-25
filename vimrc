@@ -46,6 +46,11 @@ set ttimeoutlen=50
 cnoreabbrev wrap set wrap
 cnoreabbrev nowrap set nowrap
 
+" artisan generator
+abbrev gm !php artisan generate:model
+abbrev gc !php artisan generate:controller
+abbrev gmig !php artisan generate:migration
+
 "map keys
 
 "mapping for correct regular expression under magic mode
@@ -53,6 +58,14 @@ nnoremap / /\v
 vnoremap / /\v
 nnoremap ? ?\v
 vnoremap ? ?\v
+
+"Easy escapping to normal mode
+imap jj <esc>
+
+"Auto change directory to match current file ,cd
+nnoremap ,cd :cd %:p:h<CR>:pwd<CR>
+
+nmap <C-b> :NERDTreeToggle<cr>
 
 " hide currently highlighted search
 nnoremap <leader><space> :noh<cr>
@@ -62,17 +75,38 @@ nmap <leader>l :set list!<CR>"
 " Gundo for branching diff within file history
 nnoremap <F6> :GundoToggle<CR>
 
+" easier window navigation
+nmap <C-h> <C-w>h
+nmap <C-j> <C-w>j
+nmap <C-k> <C-w>k
+nmap <C-l> <C-w>l
+
+" Edit todo list for projects
+nmap ,todo :e todo.txt<cr>
+
+
 " Practice muscle memory for using the h j k l keys for direction.
 noremap <left> <nop>
 noremap <right> <nop>
 noremap <up> <nop>
 noremap <down> <nop>
 
+" Laravel framework commons
+nmap <leader>lr :e app/routes.php<cr>
+nmap <leader>lca :e app/config/app.php<cr>81Gf(%0
+nmap <leader>lcd :e app/config/database.php<cr>
+nmap <leader>lc :e composer.json<cr>
+
 let mapleader = ","
 nmap <silent> <leader>s :set spell!<CR>
 
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
+
+" optional setting for not pulling up these folders/files when calling CtrlP
+" Laravel specific
+set wildignore+=*/vendor/**
+set wildignore+=*public/forum/**
 
 " Captial W and Q for write and quit
 :command WQ wq
@@ -109,6 +143,46 @@ if !exists('g:airline_symbols')
 	let g:airline_symbols = {}
 endif
 let g:airline_symbols.space = "\ua0"
+
+" Functions
+
+" Prepare a new PHP class
+function! Class()
+	let name = input('Class name? ')
+	let namespace = input('Any Namespace? ')
+
+	if strlen(namespace)
+		exec 'normal i<?php namespace ' . namespace . ';'
+	else
+		exec 'normal i<?php'
+	endif
+
+	" Open class
+	exec 'normal iclass ' . name . ' {}O'
+
+	exec 'normal ipublic function __construct(){}'
+endfunction
+nmap <leader>1 :call Class()<cr>
+
+function! AddDependency()
+	let dependency = input('Var Name: ')
+	let namespace = input('Class Path: ')
+	
+	let segments = split(namespace, '\')
+	let typehint = segments[-1]
+	
+	" exec 'normal gg/construct^M%i<leader> '  . typehint . ' $' . dependency . '^[/}^MO$this->^[a' . dependency . ' = $' . dependency . ';^[==o^[?{^MkO	protected $' . dependency . ';^M^[?{^MOuse ' . namespace . ';^M^['
+
+	exec 'normal gg/construct%i, ' . typehint . ' $' . dependency .
+				\ '/}O$this->' . dependency . ' = $' . dependency .
+				\ ';==o?\{kOprotected $' . dependency .
+				\ ';?\{Ouse ' . namespace . ';'
+
+	" Remove opening comma if there is only one dependency
+	if ''
+	exec 'normal :%s/(, /(/g'
+endfunction
+nmap <leader>2 :call AddDependency()<cr>
 
 function! Preserve(command)
 	" Preparation: save last search, and cursor position.
@@ -149,15 +223,3 @@ set runtimepath^=~/.vim/bundle/ctrlp.vim
 
 " status line for fugitive
 let g:airline#extensions#branch#enabled=1
-
-" autocompletion
-function! InsertTabWrapper()
-	let col = col(".") - 1
-	if !col || getline(".")[col -1] !~ '\k'
-		return "\<tab>"
-	else
-		return "\<c-n>"
-	endfunction
-
-	inoremap <tab> <c-r>=InsertTabWrapper()<cr>
-	inoremap <s-tab> <c-p>
