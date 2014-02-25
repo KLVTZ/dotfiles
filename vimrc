@@ -145,45 +145,6 @@ endif
 let g:airline_symbols.space = "\ua0"
 
 " Functions
-
-" Prepare a new PHP class
-function! Class()
-	let name = input('Class name? ')
-	let namespace = input('Any Namespace? ')
-
-	if strlen(namespace)
-		exec 'normal i<?php namespace ' . namespace . ';'
-	else
-		exec 'normal i<?php'
-	endif
-
-	" Open class
-	exec 'normal iclass ' . name . ' {}O'
-
-	exec 'normal ipublic function __construct(){}'
-endfunction
-nmap <leader>1 :call Class()<cr>
-
-function! AddDependency()
-	let dependency = input('Var Name: ')
-	let namespace = input('Class Path: ')
-	
-	let segments = split(namespace, '\')
-	let typehint = segments[-1]
-	
-	" exec 'normal gg/construct^M%i<leader> '  . typehint . ' $' . dependency . '^[/}^MO$this->^[a' . dependency . ' = $' . dependency . ';^[==o^[?{^MkO	protected $' . dependency . ';^M^[?{^MOuse ' . namespace . ';^M^['
-
-	exec 'normal gg/construct%i, ' . typehint . ' $' . dependency .
-				\ '/}O$this->' . dependency . ' = $' . dependency .
-				\ ';==o?\{kOprotected $' . dependency .
-				\ ';?\{Ouse ' . namespace . ';'
-
-	" Remove opening comma if there is only one dependency
-	if ''
-	exec 'normal :%s/(, /(/g'
-endfunction
-nmap <leader>2 :call AddDependency()<cr>
-
 function! Preserve(command)
 	" Preparation: save last search, and cursor position.
 	let l:win_view = winsaveview()
