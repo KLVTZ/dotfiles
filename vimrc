@@ -1,4 +1,3 @@
-" vim: foldmethod=marker
 set nocompatible
 filetype on
 filetype indent on
@@ -32,10 +31,6 @@ set number
 set t_Co=256
 set smartindent
 
-let g:kolor_italic=1                    " Enable italic. Default: 1
-let g:kolor_bold=1                      " Enable bold. Default: 1
-let g:kolor_underlined=0                " Enable underline for 'Underlined'. Default: 0
-let g:kolor_alternative_matchparen=0    " Gray 'MatchParen' color. Default: 0
 colorscheme kolor
 
 set listchars=tab:☠\ ,eol:¬
@@ -60,12 +55,12 @@ nnoremap ? ?\v
 vnoremap ? ?\v
 
 "Easy escapping to normal mode
-imap jj <esc>
+inoremap jj <esc>
 
 "Auto change directory to match current file ,cd
 nnoremap ,cd :cd %:p:h<CR>:pwd<CR>
 
-nmap <C-b> :NERDTreeToggle<cr>
+nnoremap <C-b> :NERDTreeToggle<cr>
 
 " hide currently highlighted search
 nnoremap <leader><space> :noh<cr>
@@ -90,12 +85,6 @@ noremap <left> <nop>
 noremap <right> <nop>
 noremap <up> <nop>
 noremap <down> <nop>
-
-" Laravel framework commons
-nmap <leader>lr :e app/routes.php<cr>
-nmap <leader>lca :e app/config/app.php<cr>81Gf(%0
-nmap <leader>lcd :e app/config/database.php<cr>
-nmap <leader>lc :e composer.json<cr>
 
 let mapleader = ","
 nmap <silent> <leader>s :set spell!<CR>
