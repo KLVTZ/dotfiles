@@ -2,6 +2,7 @@ set nocompatible
 filetype on
 filetype indent on
 filetype plugin on
+syntax on
 
 call pathogen#infect()
 
@@ -24,12 +25,12 @@ set cursorline
 set hidden
 set linebreak
 set scrolloff=5
-
-"set list
-syntax on
+set showcmd
 set number
 set t_Co=256
+set autoindent
 set smartindent
+"set list
 
 colorscheme kolor
 
@@ -127,6 +128,7 @@ if has("autocmd")
 	" Treat .rss files as XML
 	autocmd BufNewFile, BufRead *.rss setfiletype xml
 endif
+
 let g:airline_powerline_fonts = 1
 if !exists('g:airline_symbols')
 	let g:airline_symbols = {}
@@ -173,3 +175,6 @@ set runtimepath^=~/.vim/bundle/ctrlp.vim
 
 " status line for fugitive
 let g:airline#extensions#branch#enabled=1
+
+" Laravel 4 Snippet loader under PHP
+autocmd FileType php set ft=php.laravel

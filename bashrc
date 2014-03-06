@@ -90,6 +90,7 @@ alias la='ls -A'
 alias l='ls -CF'
 alias cmysql='mysql -pbattosai -uroot'
 alias c='clear'
+alias v='vim'
 
 alias photoshop='wine .wine/drive_c/Program\ Files\ \(x86\)/Photoshop/Photoshop.exe'
 alias illustrator='wine .wine/drive_c/Program\ Files\ \(x86\)/IllustratorPortable/IllustratorPortable.exe'
