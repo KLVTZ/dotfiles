@@ -1,7 +1,6 @@
 set nocompatible
 filetype on
-filetype indent on
-filetype plugin on
+filetype plugin indent on
 syntax on
 
 call pathogen#infect()
@@ -177,4 +176,4 @@ set runtimepath^=~/.vim/bundle/ctrlp.vim
 let g:airline#extensions#branch#enabled=1
 
 " Laravel 4 Snippet loader under PHP
-autocmd FileType php set ft=php.laravel
+" autocmd FileType php set ft=php.laravel
