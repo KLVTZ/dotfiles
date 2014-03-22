@@ -113,39 +113,39 @@ let g:NERDTreeWinPos = "left"
 
 " Only do this part when compiled with support for autocommands
 if has("autocmd")
-	" Enable file type detection
-	filetype on
+" Enable file type detection
+filetype on
 
-	" Syntax of these languages languages is fussy over tabs Vs spaces
-	autocmd FileType make setlocal ts=8 sts=8 sw=8 noexpandtab
-	autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
-	" Customisations based on house-style (arbitrary)
-	autocmd FileType html setlocal ts=2 sts=2 sw=2 expandtab
-	autocmd FileType css setlocal ts=2 sts=2 sw=2 expandtab
-	autocmd FileType javascript setlocal ts=4 sts=4 sw=4 noexpandtab
+" Syntax of these languages languages is fussy over tabs Vs spaces
+autocmd FileType make setlocal ts=8 sts=8 sw=8 noexpandtab
+autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
+" Customisations based on house-style (arbitrary)
+autocmd FileType html setlocal ts=2 sts=2 sw=2 expandtab
+autocmd FileType css setlocal ts=2 sts=2 sw=2 expandtab
+autocmd FileType javascript setlocal ts=4 sts=4 sw=4 noexpandtab
 
-	" Treat .rss files as XML
-	autocmd BufNewFile, BufRead *.rss setfiletype xml
+" Treat .rss files as XML
+autocmd BufNewFile, BufRead *.rss setfiletype xml
 endif
 
 let g:airline_powerline_fonts = 1
 if !exists('g:airline_symbols')
-	let g:airline_symbols = {}
+let g:airline_symbols = {}
 endif
 let g:airline_symbols.space = "\ua0"
 
 " Functions
 function! Preserve(command)
-	" Preparation: save last search, and cursor position.
-	let l:win_view = winsaveview()
-	let l:last_search = getreg('/')
-	"
-	" execute the command without adding to the changelist/jumplist:
-	execute 'keepjumps ' . a:command
-	"
-	" Clean up: restore previous search history, and cursor position
-	call winrestview(l:win_view)
-	call setreg('/', l:last_search)
+" Preparation: save last search, and cursor position.
+let l:win_view = winsaveview()
+let l:last_search = getreg('/')
+"
+" execute the command without adding to the changelist/jumplist:
+execute 'keepjumps ' . a:command
+"
+" Clean up: restore previous search history, and cursor position
+call winrestview(l:win_view)
+call setreg('/', l:last_search)
 endfunction
 
 " Delete trailing whitespace
@@ -176,4 +176,4 @@ set runtimepath^=~/.vim/bundle/ctrlp.vim
 let g:airline#extensions#branch#enabled=1
 
 " Laravel 4 Snippet loader under PHP
-" autocmd FileType php set ft=php.laravel
+autocmd FileType php set ft=php.laravel

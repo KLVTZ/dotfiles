@@ -88,9 +88,10 @@ fi
 alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
-alias cmysql='mysql -pbattosai -uroot'
+alias cmysql='mysql -pklvtz -uroot'
 alias c='clear'
 alias v='vim'
+alias w='cd /var/www'
 
 alias photoshop='wine .wine/drive_c/Program\ Files\ \(x86\)/Photoshop/Photoshop.exe'
 alias illustrator='wine .wine/drive_c/Program\ Files\ \(x86\)/IllustratorPortable/IllustratorPortable.exe'
