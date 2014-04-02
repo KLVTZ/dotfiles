@@ -8,7 +8,6 @@
 " Normal Setters and Letters
 " ----------------------------------------------------------------------------
 set nocompatible
-filetype on
 filetype plugin indent on
 syntax on
 
@@ -40,10 +39,7 @@ set autoindent
 set smartindent
 set laststatus=2
 set ttimeoutlen=50
-"
-" must enable 'set list' to see EOL
-set listchars=tab:☠\ ,eol:¬
-" Invisible character colors for EOL
+
 highlight NonText guifg=#4a4a59
 highlight SpecialKey guifg=#4a4a59
 
@@ -106,6 +102,12 @@ nmap <C-j> <C-w>j
 nmap <C-k> <C-w>k
 nmap <C-l> <C-w>l
 
+" Delete whitespace
+nnoremap <leader>W mz:%s/\s\+$//<CR>:let @/=''<CR>`z
+
+" Reindent file
+nnoremap <leader>ef mfgg=G`fzz
+
 " Edit todo list for projects
 nmap ,todo :e todo.txt<cr>
 
@@ -162,14 +164,11 @@ let g:NERDTreeWinPos = "left"
 " soft wrapping
 command! -nargs=* Wrap set wrap linebreak nolist
 
-" Laravel 4 Snippet loader under PHP
+"Laravel 4 Snippet loader under PHP
 " autocmd FileType php set ft=php.laravel
 
 " Only do this part when compiled with support for autocommands
 if has("autocmd")
-	" Enable file type detection
-	filetype on
-
 	" Syntax of these languages languages is fussy over tabs Vs spaces
 	autocmd FileType make setlocal ts=8 sts=8 sw=8 noexpandtab
 	autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
@@ -181,25 +180,3 @@ if has("autocmd")
 	" Treat .rss files as XML
 	autocmd BufNewFile, BufRead *.rss setfiletype xml
 endif
-
-" ----------------------------------------------------------------------------
-" Functions
-" ----------------------------------------------------------------------------
-
-function! Preserve(command)
-	" Preparation: save last search, and cursor position.
-	let l:win_view = winsaveview()
-	let l:last_search = getreg('/')
-	"
-	" execute the command without adding to the changelist/jumplist:
-	execute 'keepjumps ' . a:command
-	"
-	" Clean up: restore previous search history, and cursor position
-	call winrestview(l:win_view)
-	call setreg('/', l:last_search)
-endfunction
-
-" Delete trailing whitespace
-nnoremap <unique> <silent> <leader>dw :call Preserve("%s/\\s\\+$//e")<cr></unique>
-"  Reindent entire file
-nnoremap <unique> <silent> <leader>e :call Preserve("normal! gg=G")<CR></cr></leader></silent></unique></cr></leader></silent></unique>
