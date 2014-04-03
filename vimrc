@@ -39,6 +39,7 @@ set autoindent
 set smartindent
 set laststatus=2
 set ttimeoutlen=50
+set t_ut=
 
 highlight NonText guifg=#4a4a59
 highlight SpecialKey guifg=#4a4a59
@@ -158,8 +159,8 @@ let g:airline#extensions#tabline#left_sep=' '
 :command! W w
 
 " Open Vim on startup, left.
-autocmd VimEnter * NERDTree
-let g:NERDTreeWinPos = "left"
+" autocmd VimEnter * NERDTree
+" let g:NERDTreeWinPos = "left"
 
 " soft wrapping
 command! -nargs=* Wrap set wrap linebreak nolist
