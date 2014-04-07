@@ -92,8 +92,9 @@ nnoremap <C-b> :NERDTreeToggle<cr>
 " hide currently highlighted search
 nnoremap <leader><space> :noh<cr>
 
+" turn on EOL symbol
 nmap <leader>l :set list!<CR>"
-" Toggle spell checking on and off with `,s`
+
 " Gundo for branching diff within file history
 nnoremap <F6> :GundoToggle<CR>
 
@@ -121,6 +122,7 @@ noremap <down> <nop>
 " Map Goyo toggle to <leader> + z
 nnoremap <Leader>z :Goyo<CR>
 
+" Toggle spell checking on and off with `,s`
 nmap <silent> <leader>s :set spell!<CR>
 
 " Bubble up Text
