@@ -108,7 +108,7 @@ nmap <C-l> <C-w>l
 nnoremap <leader>W mz:%s/\s\+$//<CR>:let @/=''<CR>`z
 
 " Reindent file
-nnoremap <leader>ef mfgg=G`fzz
+nnoremap <leader>ef mfgg=G`z<CR>
 
 " Edit todo list for projects
 nmap ,todo :e todo.txt<cr>
