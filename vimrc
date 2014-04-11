@@ -160,6 +160,8 @@ let g:airline#extensions#tabline#left_sep=' '
 :command! Wq wq
 :command! Q q
 :command! W w
+:command! Bn bn
+:command! Bp bp
 
 " Open Vim on startup, left.
 " autocmd VimEnter * NERDTree
