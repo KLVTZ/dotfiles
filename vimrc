@@ -171,7 +171,7 @@ let g:airline#extensions#tabline#left_sep=' '
 command! -nargs=* Wrap set wrap linebreak nolist
 
 "Laravel 4 Snippet loader under PHP
-" autocmd FileType php set ft=php.laravel
+autocmd FileType php set ft=php.laravel
 
 " Only do this part when compiled with support for autocommands
 if has("autocmd")
