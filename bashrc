@@ -92,6 +92,14 @@ alias cmysql='mysql -pklvtz -uroot'
 alias c='clear'
 alias v='vim'
 alias w='cd /var/www'
+alias tmux='TERM=xterm-256color tmux'
+# alias for laravel
+alias g:m="php artisan generate:model"
+alias g:c="php artisan generate:controller"
+alias g:v="php artisan generate:view"
+alias g:s="php artisan generate:seed"
+alias g:mig="php artisan generate:migration"
+alias g:r="php artisan generate:resource"
 
 alias photoshop='wine .wine/drive_c/Program\ Files\ \(x86\)/Photoshop/Photoshop.exe'
 alias illustrator='wine .wine/drive_c/Program\ Files\ \(x86\)/IllustratorPortable/IllustratorPortable.exe'
@@ -129,6 +137,16 @@ freeSpace () {
 	if [ $reply == 'y' ]; then
 		sudo apt-get clean
 	fi	
+}
+
+updateBundle() {
+	echo "Updating Pathogen Plugins:"
+	cd ~/.vim/bundle/
+	for i in `ls`; do
+		cd "$i"
+		git pull
+		cd ..
+	done
 }
 
 # Add an "alert" alias for long running commands.  Use like so:
