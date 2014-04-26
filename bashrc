@@ -100,6 +100,7 @@ alias g:v="php artisan generate:view"
 alias g:s="php artisan generate:seed"
 alias g:mig="php artisan generate:migration"
 alias g:r="php artisan generate:resource"
+alias artisan="php artisan"
 
 alias photoshop='wine .wine/drive_c/Program\ Files\ \(x86\)/Photoshop/Photoshop.exe'
 alias illustrator='wine .wine/drive_c/Program\ Files\ \(x86\)/IllustratorPortable/IllustratorPortable.exe'
