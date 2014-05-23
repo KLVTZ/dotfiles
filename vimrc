@@ -88,7 +88,11 @@ inoremap jj <esc>
 "Auto change directory to match current file ,cd
 nnoremap ,cd :cd %:p:h<CR>:pwd<CR>
 
+" toggle NERDTree
 nnoremap <C-b> :NERDTreeToggle<cr>
+
+" ctags generator
+nnoremap <f8> :!ctags -R .<cr>
 
 " hide currently highlighted search
 nnoremap <leader><space> :noh<cr>
