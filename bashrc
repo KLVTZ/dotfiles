@@ -90,6 +90,7 @@ alias la='ls -A'
 alias l='ls -CF'
 alias cmysql='mysql -pklvtz -uroot'
 alias c='clear'
+alias h='cd ~'
 alias v='vim'
 alias w='cd /var/www'
 alias tmux='TERM=xterm-256color tmux'
@@ -101,7 +102,11 @@ alias g:s="php artisan generate:seed"
 alias g:mig="php artisan generate:migration"
 alias g:r="php artisan generate:resource"
 alias artisan="php artisan"
+alias behat="vendor/bin/behat"
+# alias for ruby
+alias rb="ruby"
 
+# alias for Adobe Products
 alias photoshop='wine .wine/drive_c/Program\ Files\ \(x86\)/Photoshop/Photoshop.exe'
 alias illustrator='wine .wine/drive_c/Program\ Files\ \(x86\)/IllustratorPortable/IllustratorPortable.exe'
 	# list disc space function alias
