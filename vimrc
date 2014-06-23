@@ -48,6 +48,9 @@ highlight SpecialKey guifg=#4a4a59
 " ControlP plugin
 set runtimepath^=~/.vim/bundle/ctrlp.vim
 
+" Invisible chars
+set listchars=tab:☠\ ,eol:¬
+
 " ----------------------------------------------------------------------------
 " Colorscheme and settings for styling
 " ----------------------------------------------------------------------------
