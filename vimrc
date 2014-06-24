@@ -40,6 +40,7 @@ set autoindent
 set smartindent
 set laststatus=2
 set ttimeoutlen=50
+set textwidth=80
 set t_ut=
 
 highlight NonText guifg=#4a4a59
