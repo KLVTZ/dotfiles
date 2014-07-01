@@ -102,7 +102,7 @@ nnoremap <f8> :!ctags -R .<cr>
 nnoremap <leader><space> :noh<cr>
 
 " turn on EOL symbol
-nmap <leader>l :set list!<CR>"
+nmap <leader>l :set list!<CR>
 
 " Gundo for branching diff within file history
 nnoremap <F6> :GundoToggle<CR>
@@ -133,6 +133,9 @@ nnoremap <Leader>z :Goyo<CR>
 
 " Toggle spell checking on and off with `,s`
 nmap <silent> <leader>s :set spell!<CR>
+
+" Toggle Syntastic
+nnoremap <F9> :SyntasticToggleMode<CR>
 
 " Bubble up Text
 nmap <C-Up> ddkP
@@ -193,4 +196,5 @@ if has("autocmd")
 
 	" Treat .rss files as XML
 	autocmd BufNewFile, BufRead *.rss setfiletype xml
+	autocmd BufRead,BufNew *.md set filetype=markdown
 endif
