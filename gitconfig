@@ -1,0 +1,20 @@
+[user]
+	name = Justin Page
+	email = xjustinpagex@gmail.com
+	phone = 650-302-2002
+[color]
+	ui = true
+[alias]
+	st = status
+	co = checkout
+	ci = commit
+	br = branch
+	df = diff
+	dfs = diff --staged
+	logg = log --graph --decorate --oneline --abbrev-commit --all
+[github]
+	user = KLVTZ
+[push]
+	default = simple
+[core]
+	editor = vim
