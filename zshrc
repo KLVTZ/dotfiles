@@ -90,21 +90,21 @@ alias g:s="php artisan generate:seed"
 alias g:mig="php artisan generate:migration"
 alias g:r="php artisan generate:resource"
 alias artisan="php artisan"
+alias n98="php n98-magerun/bin/n98-magerun"
 alias behat="vendor/bin/behat"
+alias rs="sudo service apache2 restart"
 # alias for ruby
 alias rb="ruby"
 # alias for Adobe Products
-alias photoshop='wine .wine/drive_c/Program\ Files\
-	\(x86\)/Photoshop/Photoshop.exe' alias illustrator='wine
-.wine/drive_c/Program\ Files\
-	\(x86\)/IllustratorPortable/IllustratorPortable.exe'
+alias photoshop='wine /home/justin/.wine/drive_c/Program Files (x86)/Photoshop/Photoshop.exe' 
+alias illustrator='wine .wine/drive_c/Program\ Files\ \(x86\)/IllustratorPortable/IllustratorPortable.exe'
 
 # list disc space function alias
 ds () {
 	echo "Disk Space Utilization for $HOSTNAME"
 	df -h
 }
-	# extract current compressed filed -> provide argument
+# extract current compressed filed -> provide argument
 extract () {
 	    if [ -f $1 ] ; then
 			        case $1 in
@@ -125,7 +125,7 @@ extract () {
 		fi
 }
 
-	#empy apt archive to free up disk space
+#empy apt archive to free up disk space
 freeSpace () {
 	echo "Disc Space I can clean:"
 	du -sh /var/cache/apt/archives
@@ -134,6 +134,12 @@ freeSpace () {
 	then
 		sudo apt-get clean
 	fi	
+}
+
+
+# make dirs for magento extension
+magentoExt () {
+	mkdir Block/ controllers/ etc/ Helper/ Model/ sql/
 }
 
 updateBundle() {
