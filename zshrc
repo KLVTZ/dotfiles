@@ -93,6 +93,7 @@ alias artisan="php artisan"
 alias n98="php n98-magerun/bin/n98-magerun"
 alias behat="vendor/bin/behat"
 alias rs="sudo service apache2 restart"
+alias x="exit"
 # alias for ruby
 alias rb="ruby"
 # alias for Adobe Products
