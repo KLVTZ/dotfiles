@@ -195,6 +195,6 @@ if has("autocmd")
 	autocmd FileType javascript setlocal ts=4 sts=4 sw=4 noexpandtab
 
 	" Treat .rss files as XML
-	autocmd BufNewFile, BufRead *.rss setfiletype xml
-	autocmd BufRead,BufNew *.md set filetype=markdown
+	autocmd BufNewFile,BufRead,BufNew *.rss setfiletype xml
+	autocmd BufNewFile,BufRead,BufNew *.md set filetype=markdown
 endif
