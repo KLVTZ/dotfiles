@@ -41,7 +41,6 @@ set smartindent
 set laststatus=2
 set ttimeoutlen=50
 set textwidth=80
-set t_ut=
 
 highlight NonText guifg=#4a4a59
 highlight SpecialKey guifg=#4a4a59
@@ -197,4 +196,9 @@ if has("autocmd")
 	" Treat .rss files as XML
 	autocmd BufNewFile,BufRead,BufNew *.rss setfiletype xml
 	autocmd BufNewFile,BufRead,BufNew *.md set filetype=markdown
+endif
+
+" Fix 256-color in tmux and vim
+if &term =~ '256color'
+	set t_ut=
 endif
