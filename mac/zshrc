@@ -166,3 +166,4 @@ updateHosts() {
 }
 
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
+export PATH="$(brew --prefix homebrew/php/php55)/bin:$PATH"
