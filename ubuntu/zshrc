@@ -51,7 +51,7 @@ source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
-export PATH="/home/justin/.rvm/gems/ruby-2.1.2/bin:/home/justin/.rvm/gems/ruby-2.1.2@global/bin:/home/justin/.rvm/rubies/ruby-2.1.2/bin:/usr/lib/lightdm/lightdm:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/lib/jvm/java-8-oracle/bin:/usr/lib/jvm/java-8-oracle/db/bin:/usr/lib/jvm/java-8-oracle/jre/bin:/home/justin/.rvm/bin"
+export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games"
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
@@ -74,14 +74,12 @@ export PATH="/home/justin/.rvm/gems/ruby-2.1.2/bin:/home/justin/.rvm/gems/ruby-2
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
 # For a full list of active aliases, run `alias`.
-#
-# Example aliases
-alias cmysql='mysql -pklvtz -uroot'
+alias cmysql='mysql -psecret -uroot'
 alias c='clear'
 alias h='cd ~'
 alias v='vim'
 alias w='cd /var/www'
-alias tmux='TERM=xterm-256color tmux'
+alias tmux='TERM=screen-256color tmux'
 # alias for laravel
 alias g:m="php artisan generate:model"
 alias g:c="php artisan generate:controller"
@@ -90,14 +88,15 @@ alias g:s="php artisan generate:seed"
 alias g:mig="php artisan generate:migration"
 alias g:r="php artisan generate:resource"
 alias artisan="php artisan"
-alias n98="php n98-magerun/bin/n98-magerun"
+alias n98="php magerun/bin/n98-magerun"
+alias mc="php magerun/bin/n98-magerun cache:flush && php magerun/bin/n98-magerun cache:clean"
+alias vssh="vagrant ssh"
 alias behat="vendor/bin/behat"
 alias rs="sudo service apache2 restart"
 alias x="exit"
-# alias for ruby
+alias psysh='/var/www/psysh'
 alias rb="ruby"
-# alias for Adobe Products
-alias photoshop='wine /home/justin/.wine/drive_c/Program Files (x86)/Photoshop/Photoshop.exe' 
+alias photoshop='wine /home/justin/.wine/drive_c/Program\ Files\ \(x86\)/Photoshop/Photoshop.exe' 
 alias illustrator='wine .wine/drive_c/Program\ Files\ \(x86\)/IllustratorPortable/IllustratorPortable.exe'
 
 # list disc space function alias
@@ -152,3 +151,5 @@ updateBundle() {
 		cd ..
 	done
 }
+export PATH="$HOME/.rbenv/bin:$PATH"
+eval "$(rbenv init -)"
