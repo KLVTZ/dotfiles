@@ -21,6 +21,7 @@ alias mmysql='/Applications/MAMP/Library/bin/mysql';
 alias n98='php n98-magerun/bin/n98-magerun'
 alias pl='cd ~/www/PlayworldSystems.com/trunk/';
 alias x='exit'
+alias vssh='vagrant ssh'
 alias ctags="/usr/local/Cellar/ctags/5.8/bin/ctags -R ."
 
 
