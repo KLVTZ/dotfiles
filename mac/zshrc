@@ -7,24 +7,6 @@ export ZSH=$HOME/.oh-my-zsh
 # time that oh-my-zsh is loaded.
 ZSH_THEME="cloud"
 
-# Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
-alias c='clear'
-alias h='cd ~'
-alias v='vim'
-alias rb='ruby'
-alias w='cd ~/www'
-alias ht='/Applications/MAMP/htdocs'
-alias tmux='TERM=screen-256color-bce tmux'
-alias mmysql='/Applications/MAMP/Library/bin/mysql';
-alias n98='php n98-magerun/bin/n98-magerun'
-alias pl='cd ~/www/PlayworldSystems.com/trunk/';
-alias x='exit'
-alias vssh='vagrant ssh'
-alias ctags="/usr/local/Cellar/ctags/5.8/bin/ctags -R ."
-
-
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
 
@@ -40,8 +22,8 @@ alias ctags="/usr/local/Cellar/ctags/5.8/bin/ctags -R ."
 # Uncomment the following line to disable auto-setting terminal title.
 # DISABLE_AUTO_TITLE="true"
 
-# Uncomment the following line to disable command auto-correction.
-# DISABLE_CORRECTION="true"
+# Uncomment the following line to enable command auto-correction.
+# ENABLE_CORRECTION="true"
 
 # Uncomment the following line to display red dots whilst waiting for completion.
 # COMPLETION_WAITING_DOTS="true"
@@ -62,13 +44,14 @@ alias ctags="/usr/local/Cellar/ctags/5.8/bin/ctags -R ."
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
+# Add wisely, as too many plugins slow down shell startup.
 plugins=(git)
 
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
-export PATH=$PATH:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin
+export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
@@ -87,7 +70,28 @@ export PATH=$PATH:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin
 # ssh
 # export SSH_KEY_PATH="~/.ssh/dsa_id"
 
-# list disc space function alias
+# Set personal aliases, overriding those provided by oh-my-zsh libs,
+# plugins, and themes. Aliases can be placed here, though oh-my-zsh
+# users are encouraged to define aliases within the ZSH_CUSTOM folder.
+# For a full list of active aliases, run `alias`.
+#
+# Aliases
+alias c='clear'
+alias h='cd ~'
+alias v='vim'
+alias rb='ruby'
+alias w='cd ~/www/'
+alias x='exit'
+alias vssh='vagrant ssh'
+alias n98='php n98-magerun/bin/n98-magerun'
+alias pl='cd ~/www/PlayExplorers/src';
+alias cms='cd /Users/Justin/www/QBlitz/CMS/src'
+alias ctags="/usr/local/Cellar/ctags/5.8/bin/ctags -R ."
+alias creds="pbcopy < /Users/Justin/www/PlayExplorers/assets/creds/creds.pub"
+alias qcreds="pbcopy < /Users/Justin/www/QBlitz/CMS/assets/creds/creds.pub"
+alias wcreds="pbcopy < /Users/Justin/www/WeldWheels/assets/creds/creds.pub"
+
+# Functions
 ds () {
 	echo "Disk Space Utilization for $HOSTNAME"
 	df -h
@@ -166,5 +170,14 @@ updateHosts() {
 	return
 }
 
-export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
-export PATH="$(brew --prefix homebrew/php/php55)/bin:$PATH"
+# ruby, composer, docker
+export PATH="$HOME/.rbenv/bin:$PATH"
+export PATH="$PATH:$HOME/.composer/vendor/bin"
+export DOCKER_CERT_PATH=/Users/Justin/.boot2docker/certs/boot2docker-vm
+export DOCKER_TLS_VERIFY=1
+export DOCKER_HOST=tcp://192.168.59.103:2376
+
+eval "$(rbenv init -)"
+
+### Added by the Heroku Toolbelt
+export PATH="/usr/local/heroku/bin:$PATH"
