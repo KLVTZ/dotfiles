@@ -88,12 +88,13 @@ alias g:s="php artisan generate:seed"
 alias g:mig="php artisan generate:migration"
 alias g:r="php artisan generate:resource"
 alias artisan="php artisan"
-alias n98="php magerun/bin/n98-magerun"
+alias n98="php n98/bin/n98-magerun"
 alias mc="php magerun/bin/n98-magerun cache:flush && php magerun/bin/n98-magerun cache:clean"
 alias vssh="vagrant ssh"
 alias behat="vendor/bin/behat"
 alias rs="sudo service apache2 restart"
 alias x="exit"
+alias h="cd /var/www/homestead"
 alias psysh='/var/www/psysh'
 alias rb="ruby"
 alias photoshop='wine /home/justin/.wine/drive_c/Program\ Files\ \(x86\)/Photoshop/Photoshop.exe' 
@@ -153,3 +154,4 @@ updateBundle() {
 }
 export PATH="$HOME/.rbenv/bin:$PATH"
 eval "$(rbenv init -)"
+export PATH="$PATH:$HOME/.composer/vendor/bin"
