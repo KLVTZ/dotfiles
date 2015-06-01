@@ -5,7 +5,7 @@ export ZSH=$HOME/.oh-my-zsh
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-ZSH_THEME="cloud"
+ZSH_THEME="norm"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -45,7 +45,7 @@ ZSH_THEME="cloud"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git)
+plugins=(git svn-fast-info)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -83,6 +83,8 @@ alias rb='ruby'
 alias w='cd ~/www/'
 alias x='exit'
 alias vssh='vagrant ssh'
+alias vup='vagrant up'
+alias host='sudo vim /etc/hosts'
 alias n98='php n98-magerun/bin/n98-magerun'
 alias pl='cd ~/www/PlayExplorers/src';
 alias cms='cd /Users/Justin/www/QBlitz/CMS/src'
@@ -90,6 +92,12 @@ alias ctags="/usr/local/Cellar/ctags/5.8/bin/ctags -R ."
 alias creds="pbcopy < /Users/Justin/www/PlayExplorers/assets/creds/creds.pub"
 alias qcreds="pbcopy < /Users/Justin/www/QBlitz/CMS/assets/creds/creds.pub"
 alias wcreds="pbcopy < /Users/Justin/www/WeldWheels/assets/creds/creds.pub"
+alias rcreds="pbcopy < /Users/Justin/www/Roadkill/assets/creds/creds.pub"
+alias roadkill="cd /Users/Justin/www/Roadkill/src/hgv_data/sites/php/wp-content/themes/road-kill"
+alias offgrid="cd /Users/Justin/www/OffGrid/htdocs/hgv_data/sites/hhvm"
+alias ten="cd /Users/Justin/www/enthusiast/src"
+
+
 
 # Functions
 ds () {
@@ -170,6 +178,16 @@ updateHosts() {
 	return
 }
 
+
+# backup playworld
+bckPlay() {
+	cd ~/www/PlayExplorers/bckp/PlayExplorers/src/
+	git pull origin master
+	git fetch
+	cd ../../
+	tar -zcvf playexplorers-bckp-$(date +"%Y-%m-%d").tar.gz PlayExplorers/
+}
+
 # ruby, composer, docker
 export PATH="$HOME/.rbenv/bin:$PATH"
 export PATH="$PATH:$HOME/.composer/vendor/bin"
@@ -181,3 +199,5 @@ eval "$(rbenv init -)"
 
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
+
+TERM=screen-256color

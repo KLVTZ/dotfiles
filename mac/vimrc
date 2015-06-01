@@ -35,6 +35,8 @@ set linebreak
 set scrolloff=5
 set showcmd
 set number
+set term=screen-256color
+set background=dark
 set t_Co=256
 set autoindent
 set smartindent
@@ -49,13 +51,13 @@ highlight SpecialKey guifg=#4a4a59
 set runtimepath^=~/.vim/bundle/ctrlp.vim
 
 " Invisible chars
-set listchars=tab:☠\ ,eol:¬
+set listchars=eol:¬
 
 " ----------------------------------------------------------------------------
 " Colorscheme and settings for styling
 " ----------------------------------------------------------------------------
 
-colorscheme Dracula
+colorscheme base16-ashes
 highlight Normal ctermbg=NONE
 highlight nonText ctermbg=NONE
 " ----------------------------------------------------------------------------
@@ -100,6 +102,9 @@ nmap <leader>l :set list!<CR>
 
 " Gundo for branching diff within file history
 nnoremap <F6> :GundoToggle<CR>
+
+" Redraw vim console when we are in tmux
+nnoremap <F4> :redraw!<CR>
 
 " easier window navigation
 nmap <C-h> <C-w>h
@@ -159,6 +164,9 @@ let g:airline_symbols.space = "\ua0"
 let g:airline#extensions#branch#enabled=1
 let g:airline#extensions#tabline#enabled=1
 let g:airline#extensions#tabline#left_sep=' '
+
+" EditorConfig
+let g:EditorConfig_exclude_patterns = ['fugitive://.*']
 
 " ----------------------------------------------------------------------------
 " Custom Commands
