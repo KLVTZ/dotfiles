@@ -84,20 +84,21 @@ alias w='cd ~/www/'
 alias x='exit'
 alias vssh='vagrant ssh'
 alias vup='vagrant up'
+alias vstat='vagrant global-status'
 alias host='sudo vim /etc/hosts'
 alias n98='php n98-magerun/bin/n98-magerun'
 alias pl='cd ~/www/PlayExplorers/src';
 alias cms='cd /Users/Justin/www/QBlitz/CMS/src'
 alias ctags="/usr/local/Cellar/ctags/5.8/bin/ctags -R ."
-alias creds="pbcopy < /Users/Justin/www/PlayExplorers/assets/creds/creds.pub"
-alias qcreds="pbcopy < /Users/Justin/www/QBlitz/CMS/assets/creds/creds.pub"
-alias wcreds="pbcopy < /Users/Justin/www/WeldWheels/assets/creds/creds.pub"
-alias rcreds="pbcopy < /Users/Justin/www/Roadkill/assets/creds/creds.pub"
-alias roadkill="cd /Users/Justin/www/Roadkill/src/hgv_data/sites/php/wp-content/themes/road-kill"
-alias offgrid="cd /Users/Justin/www/OffGrid/htdocs/hgv_data/sites/hhvm"
-alias ten="cd /Users/Justin/www/enthusiast/src"
-
-
+# bad pattern, use https://vaultproject.io/
+alias creds="pbcopy < ~/www/PlayExplorers/assets/creds/creds.pub"
+alias qcreds="pbcopy < ~/www/QBlitz/CMS/assets/creds/creds.pub"
+alias wcreds="pbcopy < ~/www/WeldWheels/assets/creds/creds.pub"
+alias rcreds="pbcopy < ~/www/Roadkill/assets/creds/creds.pub"
+alias roadkill="cd ~/www/Roadkill/src/hgv_data/sites/php/wp-content/themes/road-kill"
+alias offgrid="cd ~/www/OffGrid/htdocs/hgv_data/sites/hhvm"
+alias ten="cd ~/www/enthusiast/src"
+alias recoil="cd ~/www/RecoilWeb/src"
 
 # Functions
 ds () {
