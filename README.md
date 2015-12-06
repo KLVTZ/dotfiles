@@ -4,33 +4,13 @@ dotfiles
 
 Mac
 ---
-- ZSH runtime configuration
+- ZSH run control
 
 Ubuntu
 ------
-- Bash runtime configuration
-- Vim
-  - Filetype plugin
-  - runtime configuration
-  - color scheme
-  - autoloader
-- ZSH runtime configuration
+- Bash run control
+- ZSH run control
 
 Vim
 ---
-- Bundles
-  - ctrlP
-  - emmet
-  - gist
-  - goyo
-  - gundo
-  - nerdtree
-  - syntastic
-  - tComment
-  - tabular
-  - airline
-  - blade
-  - fugitive
-  - snipmate
-  - snippets
-  - surround
+- Bundle list

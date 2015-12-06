@@ -12,6 +12,7 @@
 	df = diff
 	dfs = diff --staged
 	logg = log --graph --decorate --oneline --abbrev-commit --all
+	permission-reset = !git diff -p -R | grep -E \"^(diff|(old|new) mode)\" | git apply
 [github]
 	user = KLVTZ
 [push]

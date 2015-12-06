@@ -36,6 +36,9 @@ set scrolloff=5
 set showcmd
 set number
 set t_Co=256
+set background=dark
+set term=xterm-256color
+let base16colorspace=256
 set autoindent
 set smartindent
 set laststatus=2
@@ -55,13 +58,7 @@ set listchars=tab:☠\ ,eol:¬
 " Colorscheme and settings for styling
 " ----------------------------------------------------------------------------
 
-colorscheme kolor
-let g:kolor_italic=1                    " Enable italic. Default: 1
-let g:kolor_bold=1                      " Enable bold. Default: 1
-let g:kolor_underlined=0                " Enable underline. Default: 0
-let g:kolor_alternative_matchparen=0    " Gray 'MatchParen' color. Default: 0
-
-set term=xterm-256color
+colorscheme base16-ashes
 
 " ----------------------------------------------------------------------------
 " Abbreviations
@@ -142,6 +139,10 @@ nmap <C-Down> ddp
 " Bubble multiple lines
 vmap <C-Up> xkP`[V`]
 vmap <C-Down> xp`[V`]
+
+" Easy Align
+vmap <Enter> <Plug>(EasyAlign)
+nmap ga <Plug>(EasyAlign)
 
 " CtrlP mapping --fuzzy searching
 let g:ctrlp_map = '<c-p>'

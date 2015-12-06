@@ -5,7 +5,7 @@ export ZSH=$HOME/.oh-my-zsh
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-ZSH_THEME="robbyrussell"
+ZSH_THEME="norm"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -74,13 +74,15 @@ export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/g
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
 # For a full list of active aliases, run `alias`.
+
 alias cmysql='mysql -psecret -uroot'
 alias c='clear'
 alias h='cd ~'
 alias v='vim'
 alias w='cd /var/www'
+alias x="exit"
 alias tmux='TERM=screen-256color tmux'
-# alias for laravel
+
 alias g:m="php artisan generate:model"
 alias g:c="php artisan generate:controller"
 alias g:v="php artisan generate:view"
@@ -88,15 +90,22 @@ alias g:s="php artisan generate:seed"
 alias g:mig="php artisan generate:migration"
 alias g:r="php artisan generate:resource"
 alias artisan="php artisan"
+
 alias n98="php n98/bin/n98-magerun"
 alias mc="php magerun/bin/n98-magerun cache:flush && php magerun/bin/n98-magerun cache:clean"
+
 alias vssh="vagrant ssh"
+alias vstat="vagrant global-status"
+alias vhalt="vagrant halt"
 alias behat="vendor/bin/behat"
+
 alias rs="sudo service apache2 restart"
-alias x="exit"
 alias h="cd /var/www/homestead"
 alias psysh='/var/www/psysh'
-alias rb="ruby"
+alias phpunitc='phpunit --colors'
+
+alias offgrid='cd /var/www/OffGrid/hgv/hgv_data/sites/hhvm/wp-content'
+
 alias photoshop='wine /home/justin/.wine/drive_c/Program\ Files\ \(x86\)/Photoshop/Photoshop.exe' 
 alias illustrator='wine .wine/drive_c/Program\ Files\ \(x86\)/IllustratorPortable/IllustratorPortable.exe'
 
@@ -155,3 +164,10 @@ updateBundle() {
 export PATH="$HOME/.rbenv/bin:$PATH"
 eval "$(rbenv init -)"
 export PATH="$PATH:$HOME/.composer/vendor/bin"
+
+# Base16 Shell
+BASE16_SHELL="$HOME/.config/base16-shell/base16-ashes.dark.sh"
+[[ -s $BASE16_SHELL ]] && source $BASE16_SHELL
+
+export NVM_DIR="/home/justin/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
