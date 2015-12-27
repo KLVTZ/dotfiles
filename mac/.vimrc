@@ -35,9 +35,10 @@ set linebreak
 set scrolloff=5
 set showcmd
 set number
-set term=screen-256color
-set background=dark
 set t_Co=256
+set background=dark
+set term=xterm-256color
+let base16colorspace=256
 set autoindent
 set smartindent
 set laststatus=2
@@ -51,15 +52,14 @@ highlight SpecialKey guifg=#4a4a59
 set runtimepath^=~/.vim/bundle/ctrlp.vim
 
 " Invisible chars
-set listchars=eol:¬
+set listchars=tab:☠\ ,eol:¬
 
 " ----------------------------------------------------------------------------
 " Colorscheme and settings for styling
 " ----------------------------------------------------------------------------
 
-colorscheme base16-ashes
-highlight Normal ctermbg=NONE
-highlight nonText ctermbg=NONE
+colorscheme base16-ocean
+
 " ----------------------------------------------------------------------------
 " Abbreviations
 " ----------------------------------------------------------------------------
@@ -89,7 +89,7 @@ inoremap jj <esc>
 nnoremap ,cd :cd %:p:h<CR>:pwd<CR>
 
 " toggle NERDTree
-nnoremap <C-b> :NERDTreeToggle<CR>
+nnoremap <C-b> :NERDTreeToggle<cr>
 
 " ctags generator
 nnoremap <f8> :!ctags -R .<cr>
@@ -102,9 +102,6 @@ nmap <leader>l :set list!<CR>
 
 " Gundo for branching diff within file history
 nnoremap <F6> :GundoToggle<CR>
-
-" Redraw vim console when we are in tmux
-nnoremap <F4> :redraw!<CR>
 
 " easier window navigation
 nmap <C-h> <C-w>h
@@ -145,7 +142,7 @@ vmap <C-Down> xp`[V`]
 
 " Easy Align
 vmap <Enter> <Plug>(EasyAlign)
-nmap <Leader>a <Plug>(EasyAlign)
+nmap ga <Plug>(EasyAlign)
 
 " CtrlP mapping --fuzzy searching
 let g:ctrlp_map = '<c-p>'
@@ -157,6 +154,7 @@ set wildignore+=*public/forum/**
 
 " airline
 let g:airline_powerline_fonts = 1
+let g:airline_theme= "base16"
 if !exists('g:airline_symbols')
 	let g:airline_symbols = {}
 endif
@@ -164,9 +162,6 @@ let g:airline_symbols.space = "\ua0"
 let g:airline#extensions#branch#enabled=1
 let g:airline#extensions#tabline#enabled=1
 let g:airline#extensions#tabline#left_sep=' '
-
-" EditorConfig
-let g:EditorConfig_exclude_patterns = ['fugitive://.*']
 
 " ----------------------------------------------------------------------------
 " Custom Commands
@@ -186,13 +181,6 @@ let g:EditorConfig_exclude_patterns = ['fugitive://.*']
 
 " soft wrapping
 command! -nargs=* Wrap set wrap linebreak nolist
-
-"Laravel 4 Snippet loader under PHP
-" autocmd FileType php set ft=php.laravel
-
-" Goyo reload settings on exit
-autocmd! User GoyoLeave
-autocmd User GoyoLeave nested source $MYVIMRC | silent loadview
 
 " Only do this part when compiled with support for autocommands
 if has("autocmd")

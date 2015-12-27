@@ -5,12 +5,17 @@ dotfiles
 Mac
 ---
 - ZSH run control
+- Vim run Control
 
 Ubuntu
 ------
-- Bash run control
+- Vim run control
 - ZSH run control
 
 Vim
 ---
 - Bundle list
+
+Status
+------
+Repo has been updated to include El Capitan release.
