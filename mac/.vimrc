@@ -67,10 +67,6 @@ colorscheme base16-ocean
 cnoreabbrev wrap set wrap
 cnoreabbrev nowrap set nowrap
 "
-" artisan generator
-abbrev gm !php artisan generate:model
-abbrev gc !php artisan generate:controller
-abbrev gmig !php artisan generate:migration
 
 " ----------------------------------------------------------------------------
 " Mappings
@@ -147,10 +143,6 @@ nmap ga <Plug>(EasyAlign)
 " CtrlP mapping --fuzzy searching
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
-" optional setting for not pulling up these folders/files when calling CtrlP
-" Laravel specific
-set wildignore+=*/vendor/**
-set wildignore+=*public/forum/**
 
 " airline
 let g:airline_powerline_fonts = 1
@@ -181,21 +173,6 @@ let g:airline#extensions#tabline#left_sep=' '
 
 " soft wrapping
 command! -nargs=* Wrap set wrap linebreak nolist
-
-" Only do this part when compiled with support for autocommands
-if has("autocmd")
-	" Syntax of these languages languages is fussy over tabs Vs spaces
-	autocmd FileType make setlocal ts=8 sts=8 sw=8 noexpandtab
-	autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
-	" Customisations based on house-style (arbitrary)
-	autocmd FileType html setlocal ts=2 sts=2 sw=2 expandtab
-	autocmd FileType css setlocal ts=2 sts=2 sw=2 expandtab
-	autocmd FileType javascript setlocal ts=4 sts=4 sw=4 noexpandtab
-
-	" Treat .rss files as XML
-	autocmd BufNewFile,BufRead,BufNew *.rss setfiletype xml
-	autocmd BufNewFile,BufRead,BufNew *.md set filetype=markdown
-endif
 
 " Fix 256-color in tmux and vim
 if &term =~ '256color'
