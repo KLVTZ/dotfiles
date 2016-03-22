@@ -126,8 +126,12 @@ nnoremap <Leader>z :Goyo<CR>
 " Toggle spell checking on and off with `,s`
 nmap <silent> <leader>s :set spell!<CR>
 
-" Toggle Syntastic
+" Syntastic
 nnoremap <F9> :SyntasticToggleMode<CR>
+let g:syntastic_mode_map = { 'mode' : 'active',
+			\ 'active_filetypes': [],
+			\ 'passive_filetypes': ['typescript'] }
+
 
 " Bubble up Text
 nmap <C-Up> ddkP
@@ -144,7 +148,7 @@ nmap ga <Plug>(EasyAlign)
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
 
-" airline
+" Airline
 let g:airline_powerline_fonts = 1
 let g:airline_theme= "base16"
 if !exists('g:airline_symbols')
@@ -166,10 +170,6 @@ let g:airline#extensions#tabline#left_sep=' '
 :command! W w
 :command! Bn bn
 :command! Bp bp
-
-" Open Vim on startup, left.
-" autocmd VimEnter * NERDTree
-" let g:NERDTreeWinPos = "left"
 
 " soft wrapping
 command! -nargs=* Wrap set wrap linebreak nolist
