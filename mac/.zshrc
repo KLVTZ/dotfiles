@@ -85,3 +85,5 @@ alias envconfig="vim ~/Projects/config/env.sh"
 
 # Add env 
 . ~/Projects/config/env.sh
+
+# export PATH="$HOME/.yarn/bin:$PATH"

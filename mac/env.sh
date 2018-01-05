@@ -1,11 +1,13 @@
 #!/bin/zsh
 
 # Base 16 Shell
-BASE16_SHELL="$HOME/.config/base16-shell/base16-ocean.dark.sh"
+BASE16_SHELL="$HOME/.config/base16-shell/scripts/base16-google-light.sh"
 [[ -s $BASE16_SHELL ]] && source $BASE16_SHELL
 
 TEN="~/Projects/www/TEN/htdocs/vvv/www/ten/wordpress/wp-content"
 GRD="~/Projects/www/OffGrid/htdocs/hgv/hgv_data/sites/hhvm/wp-content"
+OD="~/Projects/www/MotorTrend/OnDemand/htdocs/mercury/hgv_data/sites/hhvm"
+HG="~/Projects/www/MotorTrend/OnDemand/api/"
 
 # aliases
 alias c='clear'
@@ -22,8 +24,14 @@ alias host='sudo vim /etc/hosts'
 alias pgit='cd ~/Projects/git'
 
 alias ten="cd $TEN"
+alias ondemand="cd $OD"
 alias offgrid="cd $GRD"
 alias lowrider="cd $TEN/themes/low-rider"
+alias motortrend="cd $TEN/themes/motor-trend"
+alias fourwheeler="cd $TEN/themes/four-wheeler"
+alias halogen="cd $HG/halogen"
+alias hg="cd $HG"
+alias homestead='cd ~/Projects/git/Homestead'
 
 # Functions
 ds () {
@@ -63,6 +71,7 @@ updateBundle() {
 
 # $PATH
 export PATH=/usr/local/bin:/usr/local/sbin:$PATH
+export GOPATH=$PATH:/usr/local/opt/go/libexec/bin
 
 # Languages
 eval "$(pyenv init -)"

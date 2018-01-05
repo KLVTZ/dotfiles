@@ -1,22 +1,24 @@
 bundle
-├── ctrlp
+├── Gundo
+├── ctrlp.vim
+├── editorconfig-vim
 ├── emmet-vim
 ├── gist-vim
-├── goyo
-├── gundo
+├── goyo.vim
 ├── nerdtree
 ├── syntastic
 ├── tcomment_vim
 ├── tlib_vim
+├── tmuxline.vim
+├── typescript-vim
 ├── vim-addon-mw-utils
 ├── vim-airline
-├── vim-blade
+├── vim-airline-themes
 ├── vim-easy-align
 ├── vim-fugitive
-├── vim-less
 ├── vim-snipmate
 ├── vim-snippets
 ├── vim-surround
 └── webapi-vim
 
-19 directories, 0 files
+21 directories, 0 files

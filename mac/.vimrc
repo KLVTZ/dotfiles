@@ -36,7 +36,7 @@ set scrolloff=5
 set showcmd
 set number
 set t_Co=256
-set background=dark
+" set background=dark
 set term=xterm-256color
 let base16colorspace=256
 set autoindent
@@ -58,7 +58,7 @@ set listchars=tab:☠\ ,eol:¬
 " Colorscheme and settings for styling
 " ----------------------------------------------------------------------------
 
-colorscheme base16-ocean
+colorscheme base16-google-light
 
 " ----------------------------------------------------------------------------
 " Abbreviations
@@ -77,9 +77,6 @@ nnoremap / /\v
 vnoremap / /\v
 nnoremap ? ?\v
 vnoremap ? ?\v
-
-"Easy escapping to normal mode
-inoremap jj <esc>
 
 "Auto change directory to match current file ,cd
 nnoremap ,cd :cd %:p:h<CR>:pwd<CR>
@@ -158,6 +155,7 @@ let g:airline_symbols.space = "\ua0"
 let g:airline#extensions#branch#enabled=1
 let g:airline#extensions#tabline#enabled=1
 let g:airline#extensions#tabline#left_sep=' '
+let g:airline#extensions#whitespace#mixed_indent_algo = 1
 
 " ----------------------------------------------------------------------------
 " Custom Commands
