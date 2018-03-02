@@ -12,8 +12,6 @@ set nocompatible
 filetype plugin indent on
 syntax on
 
-call pathogen#infect()
-
 let mapleader = ","
 set ignorecase
 set hlsearch
@@ -36,7 +34,6 @@ set scrolloff=5
 set showcmd
 set number
 set t_Co=256
-" set background=dark
 set term=xterm-256color
 let base16colorspace=256
 set autoindent
@@ -58,7 +55,7 @@ set listchars=tab:☠\ ,eol:¬
 " Colorscheme and settings for styling
 " ----------------------------------------------------------------------------
 
-colorscheme base16-google-light
+colorscheme base16-atelier-cave-light
 
 " ----------------------------------------------------------------------------
 " Abbreviations
@@ -66,37 +63,36 @@ colorscheme base16-google-light
 
 cnoreabbrev wrap set wrap
 cnoreabbrev nowrap set nowrap
-"
 
 " ----------------------------------------------------------------------------
 " Mappings
 " ----------------------------------------------------------------------------
 
-"mapping for correct regular expression under magic mode
+" Mapping for correct regular expression under magic mode
 nnoremap / /\v
 vnoremap / /\v
 nnoremap ? ?\v
 vnoremap ? ?\v
 
-"Auto change directory to match current file ,cd
+" Auto change directory to match current file ,cd
 nnoremap ,cd :cd %:p:h<CR>:pwd<CR>
 
-" toggle NERDTree
+" Toggle NERDTree
 nnoremap <C-b> :NERDTreeToggle<cr>
 
 " ctags generator
 nnoremap <f8> :!ctags -R .<cr>
 
-" hide currently highlighted search
+" Hide currently highlighted search
 nnoremap <leader><space> :noh<cr>
 
-" turn on EOL symbol
+" Turn on EOL symbol
 nmap <leader>l :set list!<CR>
 
 " Gundo for branching diff within file history
 nnoremap <F6> :GundoToggle<CR>
 
-" easier window navigation
+" Easier window navigation
 nmap <C-h> <C-w>h
 nmap <C-j> <C-w>j
 nmap <C-k> <C-w>k
@@ -157,6 +153,9 @@ let g:airline#extensions#tabline#enabled=1
 let g:airline#extensions#tabline#left_sep=' '
 let g:airline#extensions#whitespace#mixed_indent_algo = 1
 
+" Gist
+let g:gist_clip_command = 'pbcopy'
+
 " ----------------------------------------------------------------------------
 " Custom Commands
 " ----------------------------------------------------------------------------
@@ -169,10 +168,13 @@ let g:airline#extensions#whitespace#mixed_indent_algo = 1
 :command! Bn bn
 :command! Bp bp
 
-" soft wrapping
+" Soft wrapping
 command! -nargs=* Wrap set wrap linebreak nolist
 
 " Fix 256-color in tmux and vim
 if &term =~ '256color'
 	set t_ut=
 endif
+
+" Underline spelling mistakes
+highlight SpellBad cterm=underline
