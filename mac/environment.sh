@@ -1,37 +1,33 @@
 #!/bin/zsh
 
 # Base 16 Shell
-BASE16_SHELL="$HOME/.config/base16-shell/scripts/base16-google-light.sh"
+BASE16_SHELL="$HOME/.config/base16-shell/scripts/base16-atelier-cave-light.sh"
 [[ -s $BASE16_SHELL ]] && source $BASE16_SHELL
 
-TEN="~/Projects/www/TEN/htdocs/vvv/www/ten/wordpress/wp-content"
-GRD="~/Projects/www/OffGrid/htdocs/hgv/hgv_data/sites/hhvm/wp-content"
-OD="~/Projects/www/MotorTrend/OnDemand/htdocs/mercury/hgv_data/sites/hhvm"
-HG="~/Projects/www/MotorTrend/OnDemand/api/"
+HG="~/Code/www/MotortrendOnDemand"
 
 # aliases
 alias c='clear'
 alias h='cd ~'
 alias v='vim'
 alias rb='ruby'
-alias w='cd ~/Projects/www'
+alias w='cd ~/Code/www'
 alias x='exit'
 alias vssh='vagrant ssh'
 alias vup='vagrant up'
 alias vstat='vagrant global-status'
 alias vhalt='vagrant halt'
 alias host='sudo vim /etc/hosts'
-alias pgit='cd ~/Projects/git'
+alias pgit='cd ~/Code/git'
 
+alias hg="cd $HG"
 alias ten="cd $TEN"
 alias ondemand="cd $OD"
-alias offgrid="cd $GRD"
-alias lowrider="cd $TEN/themes/low-rider"
-alias motortrend="cd $TEN/themes/motor-trend"
-alias fourwheeler="cd $TEN/themes/four-wheeler"
+alias notes="cd $HG/notes"
 alias halogen="cd $HG/halogen"
-alias hg="cd $HG"
-alias homestead='cd ~/Projects/git/Homestead'
+
+alias aquarium="eval '$(pyenv init -)' && \
+	python $HOME/Code/git/aquarium/aquarium.py"
 
 # Functions
 ds () {
@@ -59,9 +55,9 @@ extract () {
 	fi
 }
 
-updateBundle() {
-	echo "Updating Pathogen Plugins:"
-	cd ~/.vim/bundle/
+updateVimPlugins() {
+	echo "Updating Vim Plugins:"
+	cd ~/.vim/pack/plugins/start
 	for i in `ls`; do
 		cd "$i"
 		git pull
@@ -69,10 +65,23 @@ updateBundle() {
 	done
 }
 
+macfeh() {
+	open -b "drabweb.macfeh" "$@"
+}
+
+dynamo() {
+	cd ~/Code/www/MotortrendOnDemand/dynamo
+	java -Djava.library.path=./DynamoDBLocal_lib/ -jar DynamoDBLocal.jar
+}
+
 # $PATH
-export PATH=/usr/local/bin:/usr/local/sbin:$PATH
-export GOPATH=$PATH:/usr/local/opt/go/libexec/bin
+export GOPATH=$HOME/Code/go
+export PATH=/usr/local/bin:/usr/local/sbin:$PATH:$(go env GOPATH)/bin
 
 # Languages
-eval "$(pyenv init -)"
-eval "$(rbenv init -)"
+# eval "$(pyenv init -)"
+# eval "$(rbenv init -)"
+
+# export NVM_DIR="$HOME/.nvm"
+# [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+# [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
