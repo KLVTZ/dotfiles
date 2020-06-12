@@ -5,6 +5,7 @@ BASE16_SHELL="$HOME/.config/base16-shell/scripts/base16-atelier-cave-light.sh"
 [[ -s $BASE16_SHELL ]] && source $BASE16_SHELL
 
 HG="~/Code/www/MotortrendOnDemand"
+DS="~/Code/www/Discovery"
 
 # aliases
 alias c='clear'
@@ -13,16 +14,11 @@ alias v='vim'
 alias rb='ruby'
 alias w='cd ~/Code/www'
 alias x='exit'
-alias vssh='vagrant ssh'
-alias vup='vagrant up'
-alias vstat='vagrant global-status'
-alias vhalt='vagrant halt'
 alias host='sudo vim /etc/hosts'
 alias pgit='cd ~/Code/git'
 
 alias hg="cd $HG"
-alias ten="cd $TEN"
-alias ondemand="cd $OD"
+alias dis="cd $DS"
 alias notes="cd $HG/notes"
 alias halogen="cd $HG/halogen"
 
@@ -69,11 +65,6 @@ macfeh() {
 	open -b "drabweb.macfeh" "$@"
 }
 
-dynamo() {
-	cd ~/Code/www/MotortrendOnDemand/dynamo
-	java -Djava.library.path=./DynamoDBLocal_lib/ -jar DynamoDBLocal.jar
-}
-
 # $PATH
 export GOPATH=$HOME/Code/go
 export PATH=/usr/local/bin:/usr/local/sbin:$PATH:$(go env GOPATH)/bin
@@ -85,3 +76,7 @@ export PATH=/usr/local/bin:/usr/local/sbin:$PATH:$(go env GOPATH)/bin
 # export NVM_DIR="$HOME/.nvm"
 # [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 # [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+# export DOCKER_BUILDKIT=1
+export NODE_ENV=develop
+export COMPOSE_IGNORE_ORPHANS=1
