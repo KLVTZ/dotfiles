@@ -19,11 +19,14 @@ alias pgit='cd ~/Code/git'
 
 alias hg="cd $HG"
 alias dis="cd $DS"
-alias notes="cd $HG/notes"
-alias halogen="cd $HG/halogen"
+alias notes="cd $DS/notes"
+alias bell="cd $DS/vdp-bellevue"
+alias reco="cd $DS/reco-platform"
 
 alias aquarium="eval '$(pyenv init -)' && \
 	python $HOME/Code/git/aquarium/aquarium.py"
+
+alias python=/usr/local/bin/python3
 
 # Functions
 ds () {
@@ -65,9 +68,17 @@ macfeh() {
 	open -b "drabweb.macfeh" "$@"
 }
 
+gocover() {
+	go test -coverprofile=/tmp/cover.out ./...
+	go tool cover -o /tmp/cover.html -html=/tmp/cover.out
+	sed -i'.bak' -e 's/black/whitesmoke/g' /tmp/cover.html
+	open /tmp/cover.html
+}
+
 # $PATH
 export GOPATH=$HOME/Code/go
 export PATH=/usr/local/bin:/usr/local/sbin:$PATH:$(go env GOPATH)/bin
+export PATH="/usr/local/opt/node@12/bin:$PATH"
 
 # Languages
 # eval "$(pyenv init -)"
@@ -80,3 +91,4 @@ export PATH=/usr/local/bin:/usr/local/sbin:$PATH:$(go env GOPATH)/bin
 # export DOCKER_BUILDKIT=1
 export NODE_ENV=develop
 export COMPOSE_IGNORE_ORPHANS=1
+export AWS_PROFILE=vdp-engineer
