@@ -1,0 +1,20 @@
+custom theme colors
+#005744,#005744,#ffafa2,#F7F7F7,#75042f,#F7F7F7,#FFAFA2,#0c2581,#005744,#F7F7F7
+
+description
+#005744:column-bg
+#ffafa2:active-item
+#F7F7F7:active-item-text
+#75042f:hover-item
+#F7F7F7:text-color
+#FFAFA2:active-precence
+#0c2581:mention-badge
+#005744:top-nav-bg
+#F7F7F7:top-nav-text
+
+comments
+-  custom theme has 10 colors set but shows 9 in the custom theme section
+	- this might be due to the redesign that eliminated the additional color
+	  or the additional color was added automatically from the original 9
+	- in case someone asks why there is a difference between custom theme colors
+	  and description

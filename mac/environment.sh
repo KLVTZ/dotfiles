@@ -92,3 +92,4 @@ export PATH="/usr/local/opt/node@12/bin:$PATH"
 export NODE_ENV=develop
 export COMPOSE_IGNORE_ORPHANS=1
 export AWS_PROFILE=vdp-engineer
+export AWS_REGION=us-east-1
