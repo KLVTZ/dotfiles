@@ -178,3 +178,6 @@ endif
 
 " Underline spelling mistakes
 highlight SpellBad cterm=underline
+
+" Use color highlight for line number
+hi CursorLineNr term=bold cterm=none ctermfg=012 gui=bold
