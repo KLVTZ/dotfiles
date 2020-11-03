@@ -181,3 +181,7 @@ highlight SpellBad cterm=underline
 
 " Use color highlight for line number
 hi CursorLineNr term=bold cterm=none ctermfg=012 gui=bold
+function! s:goyo_leave()
+	hi CursorLineNr term=bold cterm=none ctermfg=012 gui=bold
+endfunction
+autocmd! User GoyoLeave nested call <SID>goyo_leave()
