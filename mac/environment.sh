@@ -22,6 +22,7 @@ alias dis="cd $DS"
 alias notes="cd $DS/notes"
 alias bell="cd $DS/vdp-bellevue"
 alias reco="cd $DS/reco-platform"
+alias cf="cd $DS/reco-platform/services/catalog-feed"
 
 alias aquarium="eval '$(pyenv init -)' && \
 	python $HOME/Code/git/aquarium/aquarium.py"
@@ -92,4 +93,4 @@ export PATH="/usr/local/opt/node@12/bin:$PATH"
 export NODE_ENV=develop
 export COMPOSE_IGNORE_ORPHANS=1
 export AWS_PROFILE=vdp-engineer
-export AWS_REGION=us-east-1
+export AWS_REGION=us-west-2

@@ -96,3 +96,13 @@ source $ZSH/oh-my-zsh.sh
 alias zshconfig="vim ~/.zshrc"
 alias ohmyzsh="vim ~/.oh-my-zsh"
 alias envconfig="vim ~/Code/config/environment.sh"
+
+# tabtab source for serverless package
+# uninstall by removing these lines or running `tabtab uninstall serverless`
+[[ -f /Users/justinpage/Code/www/MotortrendOnDemand/gocassus/node_modules/tabtab/.completions/serverless.zsh ]] && . /Users/justinpage/Code/www/MotortrendOnDemand/gocassus/node_modules/tabtab/.completions/serverless.zsh
+# tabtab source for sls package
+# uninstall by removing these lines or running `tabtab uninstall sls`
+[[ -f /Users/justinpage/Code/www/MotortrendOnDemand/gocassus/node_modules/tabtab/.completions/sls.zsh ]] && . /Users/justinpage/Code/www/MotortrendOnDemand/gocassus/node_modules/tabtab/.completions/sls.zsh
+# tabtab source for slss package
+# uninstall by removing these lines or running `tabtab uninstall slss`
+[[ -f /Users/justinpage/Code/www/MotortrendOnDemand/gocassus/node_modules/tabtab/.completions/slss.zsh ]] && . /Users/justinpage/Code/www/MotortrendOnDemand/gocassus/node_modules/tabtab/.completions/slss.zsh
