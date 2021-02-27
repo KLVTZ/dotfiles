@@ -4,17 +4,10 @@ dotfiles
 
 Mac
 ---
-- ZSH run control
+- Tmux configuration
 - Vim run Control
-
-Ubuntu
-------
-- Vim run control
 - ZSH run control
-
-Vim
----
-- Bundle list
+- Environment configuration
 
 Status
 ------
