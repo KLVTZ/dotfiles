@@ -18,4 +18,4 @@ Vim
 
 Status
 ------
-Repo has been updated to include El Capitan release.
+Repo has been updated to include High Sierra release.
