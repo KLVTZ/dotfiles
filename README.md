@@ -4,8 +4,11 @@ dotfiles
 
 Mac
 ---
+- Chunkwm configuration
+- Git config
+- SKHD configuration
 - Tmux configuration
-- Vim run Control
+- Vim run control
 - ZSH run control
 - Environment configuration
 

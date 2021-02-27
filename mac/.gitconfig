@@ -1,0 +1,23 @@
+[user]
+	name = Justin Page
+	email = justin.page@motortrend.com
+[color]
+	ui = true
+[alias]
+	st = status
+	co = checkout
+	ci = commit
+	br = branch
+	df = diff
+	dfs = diff --staged
+	logg = log --graph --decorate --oneline --abbrev-commit --all
+[github]
+	user = justinpage
+[push]
+	default = simple
+[pull]
+	ff = true
+[core]
+	editor = vim
+[url "git@github.com:"]
+	insteadOf = https://github.com/
