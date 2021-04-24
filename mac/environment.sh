@@ -4,10 +4,11 @@
 BASE16_SHELL="$HOME/.config/base16-shell/scripts/base16-atelier-cave-light.sh"
 [[ -s $BASE16_SHELL ]] && source $BASE16_SHELL
 
-HG="~/Code/www/MotortrendOnDemand"
+MT="~/Code/www/MotorTrend"
+HG="~/Code/www/MotorTrendOnDemand"
 DS="~/Code/www/Discovery"
 
-# aliases
+# Aliases
 alias c='clear'
 alias h='cd ~'
 alias v='vim'
@@ -17,12 +18,12 @@ alias x='exit'
 alias host='sudo vim /etc/hosts'
 alias pgit='cd ~/Code/git'
 
+alias mt="cd $MT"
 alias hg="cd $HG"
 alias dis="cd $DS"
-alias notes="cd $DS/notes"
+alias notes="cd $MT/notes"
 alias bell="cd $DS/vdp-bellevue"
 alias reco="cd $DS/reco-platform"
-alias cf="cd $DS/reco-platform/services/catalog-feed"
 
 alias aquarium="eval '$(pyenv init -)' && \
 	python $HOME/Code/git/aquarium/aquarium.py"
@@ -89,8 +90,8 @@ export PATH="/usr/local/opt/node@12/bin:$PATH"
 # [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 # [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
-# export DOCKER_BUILDKIT=1
 export NODE_ENV=develop
 export COMPOSE_IGNORE_ORPHANS=1
+
 export AWS_PROFILE=vdp-engineer
 export AWS_REGION=us-west-2
