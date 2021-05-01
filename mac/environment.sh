@@ -25,9 +25,6 @@ alias notes="cd $MT/notes"
 alias bell="cd $DS/vdp-bellevue"
 alias reco="cd $DS/reco-platform"
 
-alias aquarium="eval '$(pyenv init -)' && \
-	python $HOME/Code/git/aquarium/aquarium.py"
-
 alias python=/usr/local/bin/python3
 
 # Functions
@@ -35,6 +32,7 @@ ds () {
 	echo "Disk Space Utilization for $HOSTNAME"
 	df -h
 }
+
 # extract current compressed filed -> provide argument
 extract () {
 	if [ -f $1 ] ; then
@@ -58,12 +56,14 @@ extract () {
 
 updateVimPlugins() {
 	echo "Updating Vim Plugins:"
+	p=$(pwd)
 	cd ~/.vim/pack/plugins/start
 	for i in `ls`; do
 		cd "$i"
 		git pull
 		cd ..
 	done
+	cd "$p"
 }
 
 macfeh() {
@@ -77,18 +77,15 @@ gocover() {
 	open /tmp/cover.html
 }
 
+synth() {
+	fluidsynth -g 2 -p fluidsynth -o midi.driver=coremidi -o audio.driver=coreaudio \
+		-o audio.coreaudio.device=default -o audio.period-size=256 \
+		~/Music/soundfonts/generaluser/GeneralUser\ GS\ v1.471.sf2
+}
+
 # $PATH
 export GOPATH=$HOME/Code/go
 export PATH=/usr/local/bin:/usr/local/sbin:$PATH:$(go env GOPATH)/bin
-export PATH="/usr/local/opt/node@12/bin:$PATH"
-
-# Languages
-# eval "$(pyenv init -)"
-# eval "$(rbenv init -)"
-
-# export NVM_DIR="$HOME/.nvm"
-# [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-# [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 export NODE_ENV=develop
 export COMPOSE_IGNORE_ORPHANS=1

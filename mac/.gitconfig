@@ -1,6 +1,6 @@
 [user]
 	name = Justin Page
-	email = justin.page@motortrend.com
+	email = justin_page@motortrend.com
 [color]
 	ui = true
 [alias]
@@ -19,5 +19,6 @@
 	ff = true
 [core]
 	editor = vim
+	excludesfile = /Users/justinpage/.gitignore
 [url "git@github.com:"]
 	insteadOf = https://github.com/

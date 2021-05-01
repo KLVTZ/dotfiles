@@ -46,7 +46,7 @@ highlight NonText guifg=#4a4a59
 highlight SpecialKey guifg=#4a4a59
 
 " ControlP plugin
-set runtimepath^=~/.vim/bundle/ctrlp.vim
+" set runtimepath^=~/.vim/bundle/ctrlp.vim
 
 " Invisible chars
 set listchars=tab:☠\ ,eol:¬
@@ -80,17 +80,14 @@ nnoremap ,cd :cd %:p:h<CR>:pwd<CR>
 " Toggle NERDTree
 nnoremap <C-b> :NERDTreeToggle<cr>
 
-" ctags generator
-nnoremap <f8> :!ctags -R .<cr>
-
 " Hide currently highlighted search
 nnoremap <leader><space> :noh<cr>
 
 " Turn on EOL symbol
 nmap <leader>l :set list!<CR>
 
-" Gundo for branching diff within file history
-nnoremap <F6> :GundoToggle<CR>
+" Mundo for branching diff within file history
+nnoremap <F5> :MundoToggle<CR>
 
 " Easier window navigation
 nmap <C-h> <C-w>h
@@ -105,7 +102,7 @@ nnoremap <leader>W mz:%s/\s\+$//<CR>:let @/=''<CR>`z
 nnoremap <leader>ef mfgg=G`z<CR>
 
 " Edit todo list for projects
-nmap ,todo :e todo.txt<cr>
+nmap ,todo :e todo.md<cr>
 
 " Practice muscle memory for using the h j k l keys for direction.
 noremap <left> <nop>
@@ -143,7 +140,7 @@ let g:ctrlp_cmd = 'CtrlP'
 
 " Airline
 let g:airline_powerline_fonts = 1
-let g:airline_theme= "base16"
+let g:airline_theme='base16'
 if !exists('g:airline_symbols')
 	let g:airline_symbols = {}
 endif
@@ -181,12 +178,15 @@ if &term =~ '256color'
 endif
 
 " Underline spelling mistakes
-highlight SpellBad cterm=underline
+highlight clear SpellBad
+highlight SpellBad cterm=underline ctermfg=red
 
 " Use color highlight for line number
-hi CursorLineNr term=bold cterm=none ctermfg=012 gui=bold
+highlight CursorLineNr term=bold cterm=none ctermfg=012 gui=bold
 function! s:goyo_leave()
 	colorscheme base16-atelier-cave-light
-	hi CursorLineNr term=bold cterm=none ctermfg=012 gui=bold
+	highlight clear SpellBad
+	highlight SpellBad cterm=underline ctermfg=red
+	highlight CursorLineNr term=bold cterm=none ctermfg=012 gui=bold
 endfunction
 autocmd! User GoyoLeave nested call <SID>goyo_leave()
